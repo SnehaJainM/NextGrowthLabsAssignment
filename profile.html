@@ -1,0 +1,14 @@
+{% extends "userdashboard.html" %}
+{% load static %}  
+
+{% block content %}
+    <h1>Profile</h1>
+    <div class="profile-info">
+       
+        <img class="profile-icon" src="{% static 'images/Junior.png' %}" alt="Default Profile Icon" >
+
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        
+        <p><strong>Total Points:</strong> {{ total_points }}</p>
+    </div>
+{% endblock %}

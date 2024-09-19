@@ -1,0 +1,36 @@
+{% extends "userdashboard.html" %}
+{% load static %}  
+
+{% block content %}
+    <h1>Completed Tasks</h1>
+
+    <ul>
+        {% for app in user_apps %}
+
+            <li>
+                <h2>{{ app.app_name }}</h2>
+                <p><strong>Link:</strong> <a href="{{ app.app_link }}">{{ app.app_link }}</a></p>
+                <p><strong>Points:</strong> 
+                {% for apps in admin_apps %}
+        
+                    {% if app.app_name == apps.app_name %}
+                        <p> {{apps.app_points}} </p>
+                    {% endif %}
+                {% endfor %}
+                
+                
+                </p>  
+                <p>
+                    <strong>Screenshot:</strong>
+                    {% if app.app_screenshot %}
+                    <img src="{{ app.app_screenshot.url }}" alt="{{ app.app_name }} Screenshot" style="max-width: 200px; max-height: 200px;">
+                    {% else %}
+                        No screenshot available.
+                    {% endif %}
+                </p>
+            </li>
+        {% empty %}
+            <li>No completed tasks found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

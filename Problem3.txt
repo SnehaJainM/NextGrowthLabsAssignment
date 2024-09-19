@@ -1,0 +1,9 @@
+A. Choice of System for Scheduling Periodic Tasks
+
+For scheduling periodic tasks like downloading a list of ISINs every 24 hours, I don't know much about automation /web scraping - I have a rough idea of how Selenium IDE works.
+
+ B. When to Use Flask vs. Django
+
+I would choose Flask for small web applications or microservices where flexibility and speed of development are priorities. Flask is easy to use and allows for rapid prototyping and integration with other libraries.
+
+ I would use Django for larger projects requiring a robust structure, built-in features (like authentication and ORM), and an admin interface. Django’s conventions simplify development for complex applications.

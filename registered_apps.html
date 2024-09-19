@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <center><title>Registered Apps</title></center>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'admin-page' %}" class="nav-button">AdminPage</a>
+            <a href="{% url 'home' %}" class="nav-button">Home</a>
+            <a href="{% url 'logout' %}" class="nav-button">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="heading">Registered Apps</h2>
+
+        <div class="app-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>App Name</th>
+                        <th>App Link</th>
+                        <th>Category</th>
+                        <th>Subcategory</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <br>
+                <tbody>
+                    {% for app in apps %}
+                    <tr>
+                        <td>{{ app.app_name }}</td>
+                        <td><a href="{{ app.app_link }}">{{ app.app_link }}</a></td>
+                        <td>{{ app.app_category }}</td>
+                        <td>{{ app.app_subcategory }}</td>
+                        <td>{{ app.app_points }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

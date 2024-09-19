@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href='{% static 'styles.css' %}'>
+    <title>APPS</title>
+</head>
+<h1>{{name}}</h1>
+<h1>{{link}}</h1>
+<h1>{{points}}</h1>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'home' %}" class="nav-button">Home</a>
+        </nav>
+    </header>
+    
+    <main>
+        <center><h1 class='heading'>List of APPS</h1></center>
+        <div class="app-container">
+            <img src="{% static 'default-icon.png' %}" alt="App Icon" class="app-icon">
+    
+        </div>
+    </main>
+    
+</body>
+
+</html>

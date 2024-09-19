@@ -1,0 +1,35 @@
+{% extends "userdashboard.html" %}
+
+{% block content %}
+    <main>
+        <h2 class="heading">Apps</h2>
+        <h3 class="heading">Complete a task to earn your points!</h3>
+        <div class="app-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>App Name</th>
+                        <th>App Link</th>
+                        <th>Category</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <br>
+                <tbody>
+                    {% for app in apps %}
+                    <tr>
+                        <td>{{ app.app_name }}</td>
+                        <td><a href="{{ app.app_link }}">{{ app.app_link }}</a></td>
+                        <td>{{ app.app_category }}</td>
+                        <td>{{ app.app_points }}</td>
+                        <td>
+                            <a href="{% url 'tasks' %}?app_name={{ app.app_name }}&app_link={{ app.app_link }}&app_points={{ app.app_points }}">Complete the task here</a>
+                        </td>
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+{% endblock %}

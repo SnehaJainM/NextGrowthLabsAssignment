@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href='{% static 'styles.css' %}'>
+    <title>ADMIN</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'home' %}" class="nav-button">Home</a>
+            <a href="{% url 'apps_list' %}" class="nav-button">Apps List</a>
+            <a href="{% url 'logout' %}" class="nav-button">Logout</a>
+        </nav>
+        </nav>
+    </header>
+    
+    <main>
+        <center><h1 class='heading'>HELLO ADMIN</h1></center>
+        <div class="app-container">
+            <img src="{% static 'default-icon.png' %}" alt="App Icon" class="app-icon">
+            
+            <form class="app-form" method="post" enctype="multipart/form-data">
+               {% csrf_token %}
+                <div class="form-row">
+                    <input type="text" id="app-name" name="app_name" placeholder="App Name" required>
+                    <input type="url" id="app-link" name="app_link" placeholder="App Link" required>
+                </div>
+
+                <div class="form-row">
+                    <select id="app-category" name="app_category" required>
+                        <option value="">Select Category</option>
+                        <option value="Educational apps">Educational apps</option>
+                        <option value="Lifestyle apps">Lifestyle apps</option>
+                        <option value="Social media apps">Social media apps</option>
+                        <option value="Productivity apps">Productivity apps</option>
+                        <option value="Entertainment apps">Entertainment apps</option>
+                        <option value="Game apps">Game apps</option>
+                    </select>
+                    
+                    <select id="app-subcategory" name="app_subcategory" required>
+                        <option value="">Select Sub Category</option>
+                        <option value="subcategory1">Subcategory 1</option>
+                        <option value="subcategory2">Subcategory 2</option>
+                    </select>
+                </div>
+
+                <!-- Placeholder for manually adding points -->
+                <div class="form-row">
+                    <input type="number" id="points-placeholder" name="app_points" placeholder="Enter Points" required>
+                </div>
+
+                <!-- Add Points button (allows user to focus on entering points) -->
+                <button type="submit" class="add-points-button">Add Points</button>
+
+                    </form>
+        </div>
+    </main>
+    
+</body>
+
+</html>
